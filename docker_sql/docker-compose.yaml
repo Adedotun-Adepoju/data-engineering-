@@ -3,7 +3,7 @@ services:
     image: postgres:13
     env_file: .env
     volumes:
-       - "./ny_taxi_postgres_data :/var/lib/postgresql/data:rw"
+       - "./ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
     ports:
        - "5433:5432"
 
