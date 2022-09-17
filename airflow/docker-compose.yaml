@@ -52,7 +52,7 @@ x-airflow-common:
   # environment:
   #   &airflow-common-env
   volumes:
-    - ./dags:/opt/airflow/dags
+    - ./dags_new:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
     - ~/.google/credentials/:/.google/credentials:ro
