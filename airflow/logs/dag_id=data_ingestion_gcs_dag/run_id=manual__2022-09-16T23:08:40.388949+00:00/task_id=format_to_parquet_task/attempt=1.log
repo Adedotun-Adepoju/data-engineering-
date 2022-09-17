@@ -1,0 +1,23 @@
+[2022-09-16T23:08:46.425+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.format_to_parquet_task manual__2022-09-16T23:08:40.388949+00:00 [queued]>
+[2022-09-16T23:08:46.437+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.format_to_parquet_task manual__2022-09-16T23:08:40.388949+00:00 [queued]>
+[2022-09-16T23:08:46.439+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-16T23:08:46.439+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 2
+[2022-09-16T23:08:46.440+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-16T23:08:46.457+0000] {taskinstance.py:1389} INFO - Executing <Task(PythonOperator): format_to_parquet_task> on 2022-09-16 23:08:40.388949+00:00
+[2022-09-16T23:08:46.465+0000] {standard_task_runner.py:52} INFO - Started process 120 to run task
+[2022-09-16T23:08:46.470+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag', 'format_to_parquet_task', 'manual__2022-09-16T23:08:40.388949+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag.py', '--cfg-path', '/tmp/tmpcr9ov17k', '--error-file', '/tmp/tmpljkjg94s']
+[2022-09-16T23:08:46.472+0000] {standard_task_runner.py:80} INFO - Job 29: Subtask format_to_parquet_task
+[2022-09-16T23:08:46.555+0000] {task_command.py:371} INFO - Running <TaskInstance: data_ingestion_gcs_dag.format_to_parquet_task manual__2022-09-16T23:08:40.388949+00:00 [running]> on host a707f8bed02b
+[2022-09-16T23:08:46.646+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag
+AIRFLOW_CTX_TASK_ID=format_to_parquet_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-16T23:08:40.388949+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-16T23:08:40.388949+00:00
+[2022-09-16T23:08:46.818+0000] {python.py:173} INFO - Done. Returned value was: None
+[2022-09-16T23:08:46.834+0000] {taskinstance.py:1412} INFO - Marking task as SUCCESS. dag_id=data_ingestion_gcs_dag, task_id=format_to_parquet_task, execution_date=20220916T230840, start_date=20220916T230846, end_date=20220916T230846
+[2022-09-16T23:08:46.884+0000] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-09-16T23:08:46.935+0000] {local_task_job.py:279} INFO - 1 downstream tasks scheduled from follow-on schedule check

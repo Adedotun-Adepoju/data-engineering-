@@ -1,0 +1,36 @@
+[2022-09-16T23:15:48.737+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.bigquery_external_table_task manual__2022-09-16T23:15:39.068877+00:00 [queued]>
+[2022-09-16T23:15:48.756+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.bigquery_external_table_task manual__2022-09-16T23:15:39.068877+00:00 [queued]>
+[2022-09-16T23:15:48.757+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-16T23:15:48.758+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 2
+[2022-09-16T23:15:48.759+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-16T23:15:48.783+0000] {taskinstance.py:1389} INFO - Executing <Task(BigQueryCreateExternalTableOperator): bigquery_external_table_task> on 2022-09-16 23:15:39.068877+00:00
+[2022-09-16T23:15:48.795+0000] {standard_task_runner.py:52} INFO - Started process 204 to run task
+[2022-09-16T23:15:48.813+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag', 'bigquery_external_table_task', 'manual__2022-09-16T23:15:39.068877+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag.py', '--cfg-path', '/tmp/tmpprucb2wy', '--error-file', '/tmp/tmpamwzer9n']
+[2022-09-16T23:15:48.823+0000] {standard_task_runner.py:80} INFO - Job 39: Subtask bigquery_external_table_task
+[2022-09-16T23:15:48.928+0000] {task_command.py:371} INFO - Running <TaskInstance: data_ingestion_gcs_dag.bigquery_external_table_task manual__2022-09-16T23:15:39.068877+00:00 [running]> on host 6f8e2375011a
+[2022-09-16T23:15:49.043+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag
+AIRFLOW_CTX_TASK_ID=bigquery_external_table_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-16T23:15:39.068877+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-16T23:15:39.068877+00:00
+[2022-09-16T23:15:49.076+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/operators/bigquery.py", line 1123, in execute
+    impersonation_chain=self.impersonation_chain,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/cloud/hooks/bigquery.py", line 98, in __init__
+    impersonation_chain=impersonation_chain,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/google/common/hooks/base_google.py", line 225, in __init__
+    self.extras = self.get_connection(self.gcp_conn_id).extra_dejson  # type: Dict
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/base.py", line 67, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/connection.py", line 430, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `google_cloud_default` isn't defined
+[2022-09-16T23:15:49.085+0000] {taskinstance.py:1412} INFO - Marking task as UP_FOR_RETRY. dag_id=data_ingestion_gcs_dag, task_id=bigquery_external_table_task, execution_date=20220916T231539, start_date=20220916T231548, end_date=20220916T231549
+[2022-09-16T23:15:49.103+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 39 for task bigquery_external_table_task (The conn_id `google_cloud_default` isn't defined; 204)
+[2022-09-16T23:15:49.138+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-09-16T23:15:49.183+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check
