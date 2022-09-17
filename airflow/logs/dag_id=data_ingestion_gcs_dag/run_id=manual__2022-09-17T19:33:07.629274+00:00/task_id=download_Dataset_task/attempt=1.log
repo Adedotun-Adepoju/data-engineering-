@@ -1,0 +1,30 @@
+[2022-09-17T19:33:09.789+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T19:33:07.629274+00:00 [queued]>
+[2022-09-17T19:33:09.803+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T19:33:07.629274+00:00 [queued]>
+[2022-09-17T19:33:09.804+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-17T19:33:09.805+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 2
+[2022-09-17T19:33:09.805+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-17T19:33:09.824+0000] {taskinstance.py:1389} INFO - Executing <Task(BashOperator): download_Dataset_task> on 2022-09-17 19:33:07.629274+00:00
+[2022-09-17T19:33:09.832+0000] {standard_task_runner.py:52} INFO - Started process 149 to run task
+[2022-09-17T19:33:09.837+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag', 'download_Dataset_task', 'manual__2022-09-17T19:33:07.629274+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag.py', '--cfg-path', '/tmp/tmp8l_tl2mh', '--error-file', '/tmp/tmp3wbo43p7']
+[2022-09-17T19:33:09.839+0000] {standard_task_runner.py:80} INFO - Job 74: Subtask download_Dataset_task
+[2022-09-17T19:33:09.925+0000] {task_command.py:371} INFO - Running <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T19:33:07.629274+00:00 [running]> on host 1aa5ba7d981c
+[2022-09-17T19:33:10.015+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag
+AIRFLOW_CTX_TASK_ID=download_Dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-17T19:33:07.629274+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-17T19:33:07.629274+00:00
+[2022-09-17T19:33:10.018+0000] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-17T19:33:10.020+0000] {subprocess.py:74} INFO - Running command: ['/bin/bash', '-c', 'curl https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet -o /opt/***/yellow_tripdata_2021-01.parquet']
+[2022-09-17T19:33:10.037+0000] {subprocess.py:85} INFO - Output:
+[2022-09-17T19:33:10.050+0000] {subprocess.py:92} INFO -   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+[2022-09-17T19:33:10.054+0000] {subprocess.py:92} INFO -                                  Dload  Upload   Total   Spent    Left  Speed
+[2022-09-17T19:33:18.860+0000] {subprocess.py:92} INFO -   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  1 20.6M    1  221k    0     0   305k      0  0:01:09 --:--:--  0:01:09  305k 11 20.6M   11 2524k    0     0  1411k      0  0:00:15  0:00:01  0:00:14 1410k 25 20.6M   25 5468k    0     0  2005k      0  0:00:10  0:00:02  0:00:08 2005k 37 20.6M   37 7980k    0     0  2141k      0  0:00:09  0:00:03  0:00:06 2141k 49 20.6M   49 10.2M    0     0  2223k      0  0:00:09  0:00:04  0:00:05 2223k 61 20.6M   61 12.7M    0     0  2278k      0  0:00:09  0:00:05  0:00:04 2565k 73 20.6M   73 15.2M    0     0  2316k      0  0:00:09  0:00:06  0:00:03 2643k 86 20.6M   86 17.8M    0     0  2372k      0  0:00:08  0:00:07  0:00:01 2571k 99 20.6M   99 20.4M    0     0  2393k      0  0:00:08  0:00:08 --:--:-- 2578k100 20.6M  100 20.6M    0     0  2397k      0  0:00:08  0:00:08 --:--:-- 2598k
+[2022-09-17T19:33:18.865+0000] {subprocess.py:96} INFO - Command exited with return code 0
+[2022-09-17T19:33:18.910+0000] {taskinstance.py:1412} INFO - Marking task as SUCCESS. dag_id=data_ingestion_gcs_dag, task_id=download_Dataset_task, execution_date=20220917T193307, start_date=20220917T193309, end_date=20220917T193318
+[2022-09-17T19:33:18.956+0000] {local_task_job.py:156} INFO - Task exited with return code 0
+[2022-09-17T19:33:19.010+0000] {local_task_job.py:279} INFO - 1 downstream tasks scheduled from follow-on schedule check
