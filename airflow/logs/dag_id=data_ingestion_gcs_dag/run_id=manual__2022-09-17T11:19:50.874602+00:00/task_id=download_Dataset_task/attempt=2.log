@@ -1,0 +1,38 @@
+[2022-09-17T11:24:55.872+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T11:19:50.874602+00:00 [queued]>
+[2022-09-17T11:24:55.886+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T11:19:50.874602+00:00 [queued]>
+[2022-09-17T11:24:55.887+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-17T11:24:55.888+0000] {taskinstance.py:1369} INFO - Starting attempt 2 of 2
+[2022-09-17T11:24:55.889+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-17T11:24:55.907+0000] {taskinstance.py:1389} INFO - Executing <Task(BashOperator): download_Dataset_task> on 2022-09-17 11:19:50.874602+00:00
+[2022-09-17T11:24:55.915+0000] {standard_task_runner.py:52} INFO - Started process 325 to run task
+[2022-09-17T11:24:55.922+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag', 'download_Dataset_task', 'manual__2022-09-17T11:19:50.874602+00:00', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag.py', '--cfg-path', '/tmp/tmppk24qxyb', '--error-file', '/tmp/tmpqyx3i3tn']
+[2022-09-17T11:24:55.925+0000] {standard_task_runner.py:80} INFO - Job 55: Subtask download_Dataset_task
+[2022-09-17T11:24:56.010+0000] {task_command.py:371} INFO - Running <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T11:19:50.874602+00:00 [running]> on host 34bde106dac9
+[2022-09-17T11:24:56.091+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag
+AIRFLOW_CTX_TASK_ID=download_Dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-17T11:19:50.874602+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-17T11:19:50.874602+00:00
+[2022-09-17T11:24:56.094+0000] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-17T11:24:56.096+0000] {subprocess.py:74} INFO - Running command: ['/bin/bash', '-c', 'gdown --id ${file_id} -O "${path_to_local_home}/{dataset_file}"']
+[2022-09-17T11:24:56.112+0000] {subprocess.py:85} INFO - Output:
+[2022-09-17T11:24:56.727+0000] {subprocess.py:92} INFO - usage: gdown [-h] [-V] [-O OUTPUT] [-q] [--fuzzy] [--id] [--proxy PROXY]
+[2022-09-17T11:24:56.728+0000] {subprocess.py:92} INFO -              [--speed SPEED] [--no-cookies] [--no-check-certificate]
+[2022-09-17T11:24:56.730+0000] {subprocess.py:92} INFO -              [--continue] [--folder] [--remaining-ok]
+[2022-09-17T11:24:56.731+0000] {subprocess.py:92} INFO -              url_or_id
+[2022-09-17T11:24:56.732+0000] {subprocess.py:92} INFO - gdown: error: the following arguments are required: url_or_id
+[2022-09-17T11:24:56.758+0000] {subprocess.py:96} INFO - Command exited with return code 2
+[2022-09-17T11:24:56.777+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2022-09-17T11:24:56.784+0000] {taskinstance.py:1412} INFO - Marking task as FAILED. dag_id=data_ingestion_gcs_dag, task_id=download_Dataset_task, execution_date=20220917T111950, start_date=20220917T112455, end_date=20220917T112456
+[2022-09-17T11:24:56.799+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 55 for task download_Dataset_task (Bash command failed. The command returned a non-zero exit code 2.; 325)
+[2022-09-17T11:24:56.821+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-09-17T11:24:56.872+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check

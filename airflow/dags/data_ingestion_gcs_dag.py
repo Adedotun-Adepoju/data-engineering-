@@ -12,14 +12,20 @@ from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExte
 import pyarrow.csv as pv
 import pyarrow.parquet as pq 
 
+import gdown
+
 PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
 BUCKET = os.environ.get("GCP_GCS_BUCKET")
 
 dataset_file = "yellow_tripdata_2021-01.csv"
-dataset_url = f"https://s3.amazonaws.com/nyc-tlc/trip+data/{dataset_file}"
+dataset_url = "https://drive.google.com/file/d/1PVxj7DIHZb3RIvuKTrhl873rBUcaonwd/view?usp=sharing"   
+file_id = dataset_url.split("/")[-2]
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "opt/airflow/")
 parquet_file = dataset_file.replace('.csv', '.parquet')
 BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'trips_data_all')
+
+def download_from_drive(url, output):
+    gdown.download(url, output, quiet=False)
 
 def format_to_parquet(src_file):
     if not src_file.endswith('.csv'):
@@ -63,9 +69,18 @@ with DAG(
     tags=['dtc-de']
 ) as dag:
 
-    download_dataset_task = BashOperator(
+    # download_dataset_task = BashOperator(
+    #     task_id="download_Dataset_task",
+    #     bash_command=f"gdown --id ${file_id} -O {dataset_file}"
+    # )
+
+    download_dataset_task = PythonOperator(
         task_id="download_Dataset_task",
-        bash_command=f"curl -sSL {dataset_url} > {path_to_local_home}/{dataset_file}"
+        python_callable = download_from_drive,
+        op_kwargs= {
+            'url':dataset_url,
+            'output':dataset_file
+        }
     )
 
     format_to_parquet = PythonOperator(

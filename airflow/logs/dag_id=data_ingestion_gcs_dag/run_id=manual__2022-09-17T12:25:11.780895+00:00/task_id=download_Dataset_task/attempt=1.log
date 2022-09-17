@@ -1,0 +1,45 @@
+[2022-09-17T12:25:14.452+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T12:25:11.780895+00:00 [queued]>
+[2022-09-17T12:25:14.465+0000] {taskinstance.py:1171} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T12:25:11.780895+00:00 [queued]>
+[2022-09-17T12:25:14.466+0000] {taskinstance.py:1368} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-17T12:25:14.467+0000] {taskinstance.py:1369} INFO - Starting attempt 1 of 2
+[2022-09-17T12:25:14.467+0000] {taskinstance.py:1370} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-17T12:25:14.486+0000] {taskinstance.py:1389} INFO - Executing <Task(BashOperator): download_Dataset_task> on 2022-09-17 12:25:11.780895+00:00
+[2022-09-17T12:25:14.495+0000] {standard_task_runner.py:52} INFO - Started process 131 to run task
+[2022-09-17T12:25:14.500+0000] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag', 'download_Dataset_task', 'manual__2022-09-17T12:25:11.780895+00:00', '--job-id', '58', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag.py', '--cfg-path', '/tmp/tmp_oa_raec', '--error-file', '/tmp/tmpz4ggm7gh']
+[2022-09-17T12:25:14.504+0000] {standard_task_runner.py:80} INFO - Job 58: Subtask download_Dataset_task
+[2022-09-17T12:25:14.627+0000] {task_command.py:371} INFO - Running <TaskInstance: data_ingestion_gcs_dag.download_Dataset_task manual__2022-09-17T12:25:11.780895+00:00 [running]> on host 0104767f5c84
+[2022-09-17T12:25:14.780+0000] {taskinstance.py:1583} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag
+AIRFLOW_CTX_TASK_ID=download_Dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-17T12:25:11.780895+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-17T12:25:11.780895+00:00
+[2022-09-17T12:25:14.785+0000] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-17T12:25:14.787+0000] {subprocess.py:74} INFO - Running command: ['/bin/bash', '-c', 'gdown --id $1PVxj7DIHZb3RIvuKTrhl873rBUcaonwd -O $/opt/***/yellow_tripdata_2021-01.csv']
+[2022-09-17T12:25:14.805+0000] {subprocess.py:85} INFO - Output:
+[2022-09-17T12:25:15.566+0000] {subprocess.py:92} INFO - /home/***/.local/lib/python3.7/site-packages/gdown/cli.py:131: FutureWarning: Option `--id` was deprecated in version 4.3.1 and will be removed in 5.0. You don't need to pass it anymore to use a file ID.
+[2022-09-17T12:25:15.568+0000] {subprocess.py:92} INFO -   category=FutureWarning,
+[2022-09-17T12:25:15.569+0000] {subprocess.py:92} INFO - Traceback (most recent call last):
+[2022-09-17T12:25:15.570+0000] {subprocess.py:92} INFO -   File "/home/***/.local/bin/gdown", line 8, in <module>
+[2022-09-17T12:25:15.570+0000] {subprocess.py:92} INFO -     sys.exit(main())
+[2022-09-17T12:25:15.571+0000] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/gdown/cli.py", line 166, in main
+[2022-09-17T12:25:15.572+0000] {subprocess.py:92} INFO -     resume=args.continue_,
+[2022-09-17T12:25:15.572+0000] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/gdown/download.py", line 120, in download
+[2022-09-17T12:25:15.573+0000] {subprocess.py:92} INFO -     os.makedirs(cache_dir)
+[2022-09-17T12:25:15.574+0000] {subprocess.py:92} INFO -   File "/usr/local/lib/python3.7/os.py", line 223, in makedirs
+[2022-09-17T12:25:15.575+0000] {subprocess.py:92} INFO -     mkdir(name, mode)
+[2022-09-17T12:25:15.575+0000] {subprocess.py:92} INFO - PermissionError: [Errno 13] Permission denied: '/home/***/.cache/gdown'
+[2022-09-17T12:25:15.599+0000] {subprocess.py:96} INFO - Command exited with return code 1
+[2022-09-17T12:25:15.619+0000] {taskinstance.py:1902} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2022-09-17T12:25:15.626+0000] {taskinstance.py:1412} INFO - Marking task as UP_FOR_RETRY. dag_id=data_ingestion_gcs_dag, task_id=download_Dataset_task, execution_date=20220917T122511, start_date=20220917T122514, end_date=20220917T122515
+[2022-09-17T12:25:15.643+0000] {standard_task_runner.py:97} ERROR - Failed to execute job 58 for task download_Dataset_task (Bash command failed. The command returned a non-zero exit code 1.; 131)
+[2022-09-17T12:25:15.668+0000] {local_task_job.py:156} INFO - Task exited with return code 1
+[2022-09-17T12:25:15.725+0000] {local_task_job.py:279} INFO - 0 downstream tasks scheduled from follow-on schedule check
