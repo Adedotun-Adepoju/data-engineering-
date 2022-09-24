@@ -41,3 +41,15 @@ CREATE OR REPLACE TABLE `data-engineering-362120.trips_data_all.external_table_p
 PARTITION BY DATE(pickup_datetime)
 CLUSTER BY dispatching_base_num AS 
 SELECT * FROM `data-engineering-362120.trips_data_all.external_table`
+
+-- Query scans 198.46 MB
+SELECT COUNT(*) as trips 
+FROM `data-engineering-362120.trips_data_all.external_table_partitioned`
+WHERE DATE(pickup_datetime) BETWEEN '2019-01-02' AND '2019-01-19' 
+AND dispatching_base_num='B02797'
+
+-- Query scans 
+SELECT COUNT(*) as trips 
+FROM `data-engineering-362120.trips_data_all.external_table_partitioned_clustered`
+WHERE DATE(pickup_datetime) BETWEEN '2019-01-02' AND '2019-01-19' 
+AND dispatching_base_num='B02797'
