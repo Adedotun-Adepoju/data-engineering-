@@ -44,7 +44,8 @@ with DAG(
     schedule_interval = "0 6 2 * *",
     catchup = True,
     max_active_runs = 1,
-    default_args = default_args
+    default_args = default_args,
+    tags=["Yellow"]
 ) as dag: 
 
     download_dataset_task = BashOperator(
